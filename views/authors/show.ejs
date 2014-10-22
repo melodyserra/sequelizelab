@@ -12,7 +12,8 @@
 
   <% allPosts.forEach(function(post){ %>
   <p>
-  <%= post.title %>
+  <%= post.title %> <br>
+  <%= post.blog %>
   <br>
   <a href="/posts/<%= post.id %>/edit">Edit this post</a>
   </p>

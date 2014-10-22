@@ -9,13 +9,20 @@
 </head>
 <body>
   <h1>All Posts!</h1><br>
-  <a href="/posts/new">Add a New Post</a>
+
+
   <% allPosts.forEach(function(post){ %>
-  <p><%= post.title %> by <%= post.blog %></p>
-  <form action="/posts/<%= post.id %>?_method=delete" method="post">
-  	<input type="submit" value="Delete">
-  </form>
-  <a href="/posts/<%= post.id %>/edit">Edit</a>
+  
+    <p><%= post.title %> <br>
+    <%= post.blog %></p>
+
+    <a href="/posts/<%= post.AuthorId %>/new">Add a New Post</a>
+
+    <form action="/posts/<%= post.id %>?_method=delete" method="post">
+    	<input type="submit" value="Delete">
+    </form>
+    <a href="/posts/<%= post.id %>/edit">Edit</a>
+  
   <% }); %>
 </body>
 </html>

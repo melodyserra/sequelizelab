@@ -95,7 +95,7 @@ app.get('/posts', function(req, res){
 });
 
 //New
-app.get('/posts/new', function(req, res){
+app.get('/posts/:id/new', function(req, res){
   var id = req.params.id;
   res.render('posts/new', {id:id, title:"",blog:""});
 });
@@ -105,7 +105,7 @@ app.post('/posts/:id', function(req, res) {
   var AuthorId = req.params.id;
   var title = req.body.post.title;
   var blog = req.body.post.blog;
-
+  console.log(req.body)
   db.Post.create({
     title: title,
     blog: blog,
@@ -132,13 +132,14 @@ app.get('/posts/:id/edit', function(req, res) {
   });
 });
 
-//Update
+//Update - that's the Save button
 app.put('/posts/:id', function(req, res) {
   var id = req.params.id;
   db.Post.find(id).done(function(err,post){
     post.getAuthor().done(function(err,author){
       post.updateAttributes({
-      title: req.body.post.title
+      title: req.body.post.title,
+      blog: req.body.post.blog
     }).done(function(err){
         res.redirect('/authors/' + author.id + '/posts');
      });

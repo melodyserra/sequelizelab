@@ -10,8 +10,8 @@
 <body>
 <h2><%= id%></h2>
   <form action="/posts/<%= id%>" method="post">
-		<input name="post[title]" placeholder="title" value= "<%= title%>">
-      	<textarea rows="10" cols="75" type="text" name="post[blog]" id="blog"></textarea>
+		<input name="post[title]" placeholder="title" value= "<%= title%>"><br>
+      	<textarea rows="10" cols="75" name="post[blog]" id="blog"></textarea>
 		<input type="submit" value="Save">
 	</form>
 </body>
